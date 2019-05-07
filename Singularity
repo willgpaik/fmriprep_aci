@@ -28,6 +28,13 @@ From: poldracklab/fmriprep:latest
     cd /opt/
     svn export https://github.com/willgpaik/MorphoGraphX_aci.git/trunk/eod_graphics_libraries
     mv eod_graphics_libraries eod
+    
+    # Link directories
+    mkdir -p /storage/home
+    mkdir -p /storage/work
+    mkdir -p /gpfs/scratch
+    mkdir -p /gpfs/group
+    mkdir -p /var/spool/torque
 
 
 
