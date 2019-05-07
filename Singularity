@@ -15,8 +15,8 @@ From: poldracklab/fmriprep:latest
 %runscript
 
 %post
-    apt-get update
-    apt-get upgrade
+    apt-get -y update
+    apt-get -y upgrade
     apt install wget
     
     # Install DSI Studio and MRtrix3
