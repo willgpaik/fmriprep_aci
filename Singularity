@@ -15,9 +15,19 @@ From: poldracklab/fmriprep:latest
 %runscript
 
 %post
+    # Ubuntu DSI Studio installation guide: http://www.nemotos.net/?p=1878
+
     apt-get -y update
     apt-get -y upgrade
-    apt-get install -y wget
+    apt-get install -y wget \
+        zip \
+        unzip \
+        libboost-all-dev \
+        qt5-qmake \
+        qt5-default \
+        zlib1g \
+        zlib1g-dev \
+        libqt5opengl5-dev
     
     # Install DSI Studio and MRtrix3
     mkdir -p /opt/sw/
