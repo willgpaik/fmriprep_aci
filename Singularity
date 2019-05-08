@@ -15,7 +15,7 @@ From: poldracklab/fmriprep:latest
 %runscript
 
 %post
-    #apt-get -y update
+    apt-get -y update
     #apt-get -y upgrade
     apt-get install -y wget
     
