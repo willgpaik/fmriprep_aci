@@ -18,7 +18,7 @@ From: poldracklab/fmriprep:latest
     # Ubuntu DSI Studio installation guide: http://www.nemotos.net/?p=1878
 
     apt-get -y update
-    apt-get -y upgrade
+    #apt-get -y upgrade
     apt-get install -y wget \
         zip \
         unzip \
