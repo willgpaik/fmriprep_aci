@@ -17,9 +17,9 @@ From: poldracklab/fmriprep:latest
 %post
     # Ubuntu DSI Studio installation guide: http://www.nemotos.net/?p=1878
 
-    apt-get -y update
-    #apt-get -y upgrade
-    apt-get install -y wget \
+    apt-get update
+    apt-get install -y --no-install-recommends \
+        wget \
         zip \
         unzip \
         libboost-all-dev \
@@ -28,6 +28,7 @@ From: poldracklab/fmriprep:latest
         zlib1g \
         zlib1g-dev \
         libqt5opengl5-dev
+    apt-get clean
     
     # Install DSI Studio and MRtrix3
     mkdir -p /opt/sw/
