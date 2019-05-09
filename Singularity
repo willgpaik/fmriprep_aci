@@ -11,6 +11,7 @@ From: poldracklab/fmriprep:latest
     LD_PRELOAD="/opt/eod/lib/libopentextdlfaker.so.3:/opt/eod/lib/libopentextglfaker.so.3 \
         :/opt/eod/lib64/libopentextdlfaker.so.3:/opt/eod/lib64/libopentextglfaker.so.3"
     export LD_PRELOAD
+    export EIGEN_CFLAGS=/usr/include/eigen3
 
 %runscript
 
@@ -25,6 +26,7 @@ From: poldracklab/fmriprep:latest
         libboost-all-dev \
         qt5-qmake \
         qt5-default \
+        libqt5opengl5-dev \
         libqt5svg5* \
         zlib1g \
         zlib1g-dev \
@@ -33,6 +35,9 @@ From: poldracklab/fmriprep:latest
         vim \
         nano
     apt-get clean
+    
+    # Qt5 Charts required:
+    pip install PyQtChart
     
     # Install DSI Studio and MRtrix3
     mkdir -p /opt/sw/
