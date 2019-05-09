@@ -1,5 +1,5 @@
 # fmriprep_aci
-Singularity recipe for OpenFOAM5 on Ubuntu 16.04 for ICS ACI clusters
+Singularity recipe for fMRIPrep on Ubuntu 16.04 for ICS ACI clusters
 
 This version contains:  
 fMRIPrep, ANTs, DSI Studio, and MRtrix3  
