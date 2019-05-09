@@ -28,7 +28,9 @@ From: poldracklab/fmriprep:latest
         zlib1g \
         zlib1g-dev \
         libqt5opengl5-dev \
-        libeigen3-dev
+        libeigen3-dev \
+        vim \
+        nano
     apt-get clean
     
     # Install DSI Studio and MRtrix3
