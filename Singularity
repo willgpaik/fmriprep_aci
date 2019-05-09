@@ -41,12 +41,14 @@ From: poldracklab/fmriprep:latest
     cd /tmp
     wget http://download.qt.io/official_releases/qt/5.12/5.12.3/single/qt-everywhere-src-5.12.3.tar.xz
     tar -xf qt-everywhere-src-5.12.3.tar.xz
+    cd qt-everywhere-src-5.12.3
     ./configure -opensource -nomake tests -confirm-license -c++std c++11 -qt-sql-sqlite -plugin-sql-sqlite -system-sqlite
+    make && make install
     cd qt-everywhere-src-5.12.3/qtcharts
     make && make install
     cd /tmp
     rm qt-everywhere-src-5.12.3.tar.xz
-    rm -rf qt-everywhere-src-5.12.3
+    #rm -rf qt-everywhere-src-5.12.3
     
     # Install DSI Studio and MRtrix3
     mkdir -p /opt/sw/
