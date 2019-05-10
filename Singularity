@@ -42,7 +42,7 @@ From: poldracklab/fmriprep:latest
     wget http://download.qt.io/official_releases/qt/5.12/5.12.3/single/qt-everywhere-src-5.12.3.tar.xz
     tar -xf qt-everywhere-src-5.12.3.tar.xz
     cd qt-everywhere-src-5.12.3
-    ./configure -opensource -nomake tests -confirm-license -c++std c++11 -sqlite
+    ./configure -platform linux-g++ -opensource -nomake tests -confirm-license -c++std c++11 -sqlite
     make && make install
     cd qt-everywhere-src-5.12.3/qtcharts
     make && make install
