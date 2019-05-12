@@ -1,5 +1,5 @@
-BootStrap: docker
-From: poldracklab/fmriprep:latest
+BootStrap: shub
+From: shub://willgpaik/fmriprep_aci:fmriprep
 
 %setup
 
@@ -28,27 +28,13 @@ From: poldracklab/fmriprep:latest
         qt5-default \
         libqt5opengl5-dev \
         libqt5svg5* \
+        libqt5charts5-dev \
         zlib1g \
         zlib1g-dev \
-        libqt5opengl5-dev \
         libeigen3-dev \
         vim \
-        nano
+        nano 
     apt-get clean
-    
-    # Qt5 Charts required:
-    # Installation help found: https://forum.qt.io/topic/71581/problem-installing-qt-charts/8
-    cd /tmp
-    wget http://download.qt.io/official_releases/qt/5.12/5.12.3/single/qt-everywhere-src-5.12.3.tar.xz
-    tar -xf qt-everywhere-src-5.12.3.tar.xz
-    cd qt-everywhere-src-5.12.3
-    ./configure -platform linux-g++ -opensource -nomake tests -confirm-license -c++std c++11
-    make && make install
-    cd qt-everywhere-src-5.12.3/qtcharts
-    make && make install
-    cd /tmp
-    rm qt-everywhere-src-5.12.3.tar.xz
-    #rm -rf qt-everywhere-src-5.12.3
     
     # Install DSI Studio and MRtrix3
     mkdir -p /opt/sw/
