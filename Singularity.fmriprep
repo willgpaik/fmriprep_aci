@@ -186,6 +186,7 @@ export MKL_NUM_THREADS=1 \
     # Precaching atlases
 export TEMPLATEFLOW_HOME="/opt/templateflow"
     mkdir -p $TEMPLATEFLOW_HOME
+    pip install duecredit
     pip install --no-cache-dir "templateflow>=0.1.3,<0.2.0a0" && \
     python -c "from templateflow import api as tfapi; \
                tfapi.get('MNI152NLin6Asym'); \
@@ -196,7 +197,7 @@ export TEMPLATEFLOW_HOME="/opt/templateflow"
 
 
     # Installing FMRIPREP
-    cp . /src/fmriprep
+    cp -r . /src/fmriprep
     pip install --no-cache-dir "/src/fmriprep[all]"
 
     install -m 0755 \
