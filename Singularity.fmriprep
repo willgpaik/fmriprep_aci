@@ -197,6 +197,7 @@ export TEMPLATEFLOW_HOME="/opt/templateflow"
 
 
     # Installing FMRIPREP
+    mkdir -p /src/fmriprep
     cp -r . /src/fmriprep
     pip install --no-cache-dir "/src/fmriprep[all]"
 
