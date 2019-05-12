@@ -197,13 +197,14 @@ export TEMPLATEFLOW_HOME="/opt/templateflow"
 
 
     # Installing FMRIPREP
-    mkdir -p /src/fmriprep
-    cp -r . /src/fmriprep
-    pip install --no-cache-dir "/src/fmriprep"
+    #mkdir -p /src/fmriprep
+    #cp -r . /src/fmriprep
+    #pip install --no-cache-dir "/src/fmriprep"
+    pip install --no-cache-dir fmriprep
 
-    install -m 0755 \
-    /src/fmriprep/scripts/generate_reference_mask.py \
-    /usr/local/bin/generate_reference_mask
+    #install -m 0755 \
+    #/src/fmriprep/scripts/generate_reference_mask.py \
+    #/usr/local/bin/generate_reference_mask
 
     find $HOME -type d -exec chmod go=u {} + && \
     find $HOME -type f -exec chmod go=u {} +
