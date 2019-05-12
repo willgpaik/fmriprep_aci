@@ -1,14 +1,11 @@
-BootStrap: docker
-From: ubuntu:18.04
+BootStrap: shub
+From: shub://willgpaik/ubuntu:1804
 
 %setup
     
 %files
 
 %environment 
-    LD_PRELOAD="/opt/eod/lib/libopentextdlfaker.so.3:/opt/eod/lib/libopentextglfaker.so.3 \
-        :/opt/eod/lib64/libopentextdlfaker.so.3:/opt/eod/lib64/libopentextglfaker.so.3"
-    export LD_PRELOAD
 
 %runscript
     exec /usr/local/miniconda/bin/fmriprep
@@ -23,21 +20,6 @@ From: ubuntu:18.04
     
     # Prepare environment
     apt-get update && \
-    apt-get install -y --no-install-recommends \
-                    apt-utils \
-                    nux-tools \
-                    wget
-    apt-get install -y --no-install-recommends \
-                    curl \
-                    bzip2 \
-                    ca-certificates \
-                    xvfb \
-                    cython3 \
-                    build-essential \
-                    autoconf \
-                    libtool \
-                    pkg-config \
-                    git && \
     curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y --no-install-recommends \
                     nodejs && \
