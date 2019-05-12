@@ -25,7 +25,8 @@ From: ubuntu:18.04
     apt-get update && \
     apt-get install -y --no-install-recommends \
                     apt-utils \
-                    nux-tools
+                    nux-tools \
+                    wget
     apt-get install -y --no-install-recommends \
                     curl \
                     bzip2 \
