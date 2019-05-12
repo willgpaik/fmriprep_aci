@@ -151,7 +151,8 @@ export PATH="/usr/local/miniconda/bin:$PATH" \
     PYTHONNOUSERSITE=1
 
     # Installing precomputed python packages
-    conda install -y python=3.7.1 \
+    conda install -y conda-build \
+                     python=3.7.1 \
                      pip=19.1 \
                      mkl=2018.0.3 \
                      mkl-service \
