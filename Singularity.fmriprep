@@ -73,6 +73,8 @@ export PERL5LIB="$MINC_LIB_DIR/perl5/5.8.5" \
     # Installing Neurodebian packages (FSL, AFNI, git)
     # http://neuro.debian.net/install_pkg.html?p=fsl-core
     wget -O- http://neuro.debian.net/lists/bionic.us-nh.full | tee /etc/apt/sources.list.d/neurodebian.sources.list
+    apt-key add /usr/local/etc/neurodebian.gpg && \
+    (apt-key adv --refresh-keys --keyserver hkp://ha.pool.sks-keyservers.net 0xA5D32F012649A5A9 || true)
     apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9
 
     apt-get update && \
