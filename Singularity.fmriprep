@@ -111,7 +111,7 @@ export PATH=$ANTSPATH:$PATH
     useradd -m -s /bin/bash -G users fmriprep
     mkdir -p /home/fmriprep
 export HOME="/home/fmriprep"
-
+    cd $HOME
 
     # Installing SVGO
     curl -sL https://deb.nodesource.com/setup_10.x | bash -
