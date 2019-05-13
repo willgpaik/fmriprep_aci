@@ -33,7 +33,8 @@ From: shub://willgpaik/fmriprep_aci:fmriprep
         zlib1g-dev \
         libeigen3-dev \
         vim \
-        nano 
+        nano \
+        subversion
     apt-get clean
     
     # Install DSI Studio and MRtrix3
