@@ -1,5 +1,5 @@
 BootStrap: shub
-From: shub://willgpaik/ubuntu_aci:1804
+From: shub://willgpaik/ubuntu_aci:1604
 
 %setup
     
