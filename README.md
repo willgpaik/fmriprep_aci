@@ -13,3 +13,6 @@ Separated **fMRIPrep build** and **DSI Studio + MRtrix3 build** (Due to build ti
 2019/5/14  
 Moved back to Ubuntu 16.04 (Kernel version issue on ACI clusters)  
 Qt 5.12.3 is added to **fMRIPrep build**
+
+2019/5/20  
+Built Qt 5.12.3 without OpenGL support
