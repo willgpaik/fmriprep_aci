@@ -8,8 +8,7 @@ From: shub://willgpaik/fmriprep_aci:fmriprep
 %environment 
     PATH="$PATH:/opt/sw/dsistudio/build/:/opt/sw/mrtrix3/bin/"
     export PATH
-    LD_PRELOAD="/opt/eod/lib/libopentextdlfaker.so.3:/opt/eod/lib/libopentextglfaker.so.3 \
-        :/opt/eod/lib64/libopentextdlfaker.so.3:/opt/eod/lib64/libopentextglfaker.so.3"
+    LD_PRELOAD=/opt/eod/lib64/libopentextdlfaker.so.3:/opt/eod/lib64/libopentextglfaker.so.3
     export LD_PRELOAD
     export EIGEN_CFLAGS=/usr/include/eigen3
 
