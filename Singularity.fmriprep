@@ -42,9 +42,9 @@ From: shub://willgpaik/ubuntu_aci:1604
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
     # Install latest pandoc
-    curl -o pandoc-2.2.2.1-1-amd64.deb -sSL "https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-1-amd64.deb" && \
-    dpkg -i pandoc-2.2.2.1-1-amd64.deb && \
-    rm pandoc-2.2.2.1-1-amd64.deb
+    curl -o pandoc-2.9.2.1-1-amd64.deb -sSL "https://github.com/jgm/pandoc/releases/download/2.9.2.1/pandoc-2.9.2.1-1-amd64.deb" && \
+    dpkg -i pandoc-2.9.2.1-1-amd64.deb && \
+    rm pandoc-2.9.2.1-1-amd64.deb
     
     
     # Installing freesurfer
@@ -68,22 +68,22 @@ From: shub://willgpaik/ubuntu_aci:1604
     --exclude='freesurfer/subjects/V1_average' \
     --exclude='freesurfer/trctrain'
 
-export FSL_DIR="/usr/share/fsl/5.0" \
-    OS="Linux" \
-    FS_OVERRIDE=0 \
-    FIX_VERTEX_AREA="" \
-    FSF_OUTPUT_FORMAT="nii.gz" \
-    FREESURFER_HOME="/opt/freesurfer"
-export SUBJECTS_DIR="$FREESURFER_HOME/subjects" \
-    FUNCTIONALS_DIR="$FREESURFER_HOME/sessions" \
-    MNI_DIR="$FREESURFER_HOME/mni" \
-    LOCAL_DIR="$FREESURFER_HOME/local" \
-    MINC_BIN_DIR="$FREESURFER_HOME/mni/bin" \
-    MINC_LIB_DIR="$FREESURFER_HOME/mni/lib" \
-    MNI_DATAPATH="$FREESURFER_HOME/mni/data"
-export PERL5LIB="$MINC_LIB_DIR/perl5/5.8.5" \
-    MNI_PERL5LIB="$MINC_LIB_DIR/perl5/5.8.5" \
-    PATH="$FREESURFER_HOME/bin:$FSFAST_HOME/bin:$FREESURFER_HOME/tktools:$MINC_BIN_DIR:$PATH"
+    export FSL_DIR="/usr/share/fsl/5.0" \
+        OS="Linux" \
+        FS_OVERRIDE=0 \
+        FIX_VERTEX_AREA="" \
+        FSF_OUTPUT_FORMAT="nii.gz" \
+        FREESURFER_HOME="/opt/freesurfer"
+    export SUBJECTS_DIR="$FREESURFER_HOME/subjects" \
+        FUNCTIONALS_DIR="$FREESURFER_HOME/sessions" \
+        MNI_DIR="$FREESURFER_HOME/mni" \
+        LOCAL_DIR="$FREESURFER_HOME/local" \
+        MINC_BIN_DIR="$FREESURFER_HOME/mni/bin" \
+        MINC_LIB_DIR="$FREESURFER_HOME/mni/lib" \
+        MNI_DATAPATH="$FREESURFER_HOME/mni/data"
+    export PERL5LIB="$MINC_LIB_DIR/perl5/5.8.5" \
+        MNI_PERL5LIB="$MINC_LIB_DIR/perl5/5.8.5" \
+        PATH="$FREESURFER_HOME/bin:$FSFAST_HOME/bin:$FREESURFER_HOME/tktools:$MINC_BIN_DIR:$PATH"
     
     
     # Installing Neurodebian packages (FSL, AFNI, git)
@@ -95,38 +95,41 @@ export PERL5LIB="$MINC_LIB_DIR/perl5/5.8.5" \
 
     apt-get update && \
     apt-get install -y --no-install-recommends \
-                    fsl-core=5.0.9-5~nd18.04+1 \
-                    afni=18.0.05+git24-gb25b21054~dfsg.1-1~nd17.10+1+nd18.04+1 \
+                    fsl-core=5.0.9-5~nd16.04+1 \
+                    fsl-mni152-templates=5.0.7-2 \
+                    afni=16.2.07~dfsg.1-5~nd16.04+1 \
                     convert3d \
+                    connectome-workbench=1.3.2-2~nd16.04+1 \
                     git-annex-standalone && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-export FSLDIR="/usr/share/fsl/5.0" \
-    FSLOUTPUTTYPE="NIFTI_GZ" \
-    FSLMULTIFILEQUIT="TRUE" \
-    POSSUMDIR="/usr/share/fsl/5.0" \
-    LD_LIBRARY_PATH="/usr/lib/fsl/5.0:$LD_LIBRARY_PATH" \
-    FSLTCLSH="/usr/bin/tclsh" \
-    FSLWISH="/usr/bin/wish" \
-    AFNI_MODELPATH="/usr/lib/afni/models" \
-    AFNI_IMSAVE_WARNINGS="NO" \
-    AFNI_TTATLAS_DATASET="/usr/share/afni/atlases" \
-    AFNI_PLUGINPATH="/usr/lib/afni/plugins"
-export PATH="/usr/lib/fsl/5.0:/usr/lib/afni/bin:$PATH"
+
+    export FSLDIR="/usr/share/fsl/5.0" \
+        FSLOUTPUTTYPE="NIFTI_GZ" \
+        FSLMULTIFILEQUIT="TRUE" \
+        POSSUMDIR="/usr/share/fsl/5.0" \
+        LD_LIBRARY_PATH="/usr/lib/fsl/5.0:$LD_LIBRARY_PATH" \
+        FSLTCLSH="/usr/bin/tclsh" \
+        FSLWISH="/usr/bin/wish" \
+        AFNI_MODELPATH="/usr/lib/afni/models" \
+        AFNI_IMSAVE_WARNINGS="NO" \
+        AFNI_TTATLAS_DATASET="/usr/share/afni/atlases" \
+        AFNI_PLUGINPATH="/usr/lib/afni/plugins"
+    export PATH="/usr/lib/fsl/5.0:/usr/lib/afni/bin:$PATH"
 
 
     # Installing ANTs 2.2.0 (NeuroDocker build)
-export ANTSPATH=/usr/lib/ants
-    mkdir -p $ANTSPATH && \
-    curl -sSL "https://dl.dropbox.com/s/2f4sui1z6lcgyek/ANTs-Linux-centos5_x86_64-v2.2.0-0740f91.tar.gz" \
-    | tar -xzC $ANTSPATH --strip-components 1
-export PATH=$ANTSPATH:$PATH
+    export ANTSPATH=/usr/lib/ants
+        mkdir -p $ANTSPATH && \
+        curl -sSL "https://dl.dropbox.com/s/2f4sui1z6lcgyek/ANTs-Linux-centos5_x86_64-v2.2.0-0740f91.tar.gz" \
+        | tar -xzC $ANTSPATH --strip-components 1
+    export PATH=$ANTSPATH:$PATH
 
 
     # Create a shared $HOME directory
     useradd -m -s /bin/bash -G users fmriprep
     mkdir -p /home/fmriprep
-export HOME="/home/fmriprep"
+    export HOME="/home/fmriprep"
     cd $HOME
 
     # Installing SVGO
@@ -136,41 +139,32 @@ export HOME="/home/fmriprep"
 
 
     # Installing bids-validator
-    npm install -g bids-validator@1.2.3
-
-    # Installing SVGO
-    curl -sL https://deb.nodesource.com/setup_10.x | bash -
-    apt-get install -y nodejs
-    npm install -g svgo
-
-
-    # Installing bids-validator
-    npm install -g bids-validator@1.2.3
+    npm install -g bids-validator@1.4.0
 
     # Installing and setting up ICA_AROMA
     mkdir -p /opt/ICA-AROMA && \
-    curl -sSL "https://github.com/maartenmennes/ICA-AROMA/archive/v0.4.4-beta.tar.gz" \
+    curl -sSL "https://github.com/oesteban/ICA-AROMA/archive/v0.4.5.tar.gz" \
     | tar -xzC /opt/ICA-AROMA --strip-components 1 && \
     chmod +x /opt/ICA-AROMA/ICA_AROMA.py
 
-export PATH=/opt/ICA-AROMA:$PATH
-
+    export PATH="/opt/ICA-AROMA:$PATH" \
+    AROMA_VERSION="0.4.5"
+    
     # Installing and setting up miniconda
-    curl -sSLO https://repo.continuum.io/miniconda/Miniconda3-4.5.11-Linux-x86_64.sh && \
-    bash Miniconda3-4.5.11-Linux-x86_64.sh -b -p /usr/local/miniconda && \
-    rm Miniconda3-4.5.11-Linux-x86_64.sh
-
+    curl -sSLO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+    bash Miniconda3-latest-Linux-x86_64.sh -b -p /usr/local/miniconda && \
+    rm Miniconda3-latest-Linux-x86_64.sh
+    
 
     # Set CPATH for packages relying on compiled libs (e.g. indexed_gzip)
-export PATH="/usr/local/miniconda/bin:$PATH" \
+    export PATH="/usr/local/miniconda/bin:$PATH" \
     CPATH="/usr/local/miniconda/include/:$CPATH" \
     LANG="C.UTF-8" \
     LC_ALL="C.UTF-8" \
     PYTHONNOUSERSITE=1
 
     # Installing precomputed python packages
-    conda install -y conda-build \
-                     python=3.7.1 \
+    conda install -y python=3.7.1 \
                      pip=19.1 \
                      mkl=2018.0.3 \
                      mkl-service \
@@ -192,7 +186,7 @@ export PATH="/usr/local/miniconda/bin:$PATH" \
     
     # Unless otherwise specified each process should only use one thread - nipype
     # will handle parallelization
-export MKL_NUM_THREADS=1 \
+    export MKL_NUM_THREADS=1 \
     OMP_NUM_THREADS=1
 
     # Precaching fonts, set 'Agg' as default backend for matplotlib
@@ -200,16 +194,23 @@ export MKL_NUM_THREADS=1 \
     sed -i 's/\(backend *: \).*$/\1Agg/g' $( python -c "import matplotlib; print(matplotlib.matplotlib_fname())" )
 
     # Precaching atlases
-export TEMPLATEFLOW_HOME="/opt/templateflow"
-    mkdir -p $TEMPLATEFLOW_HOME
-    pip install duecredit
-    pip install --no-cache-dir "templateflow>=0.1.3,<0.2.0a0" && \
+    wget -o fmriprep-setup.cfg https://raw.githubusercontent.com/poldracklab/fmriprep/master/setup.cfg
+    pip install --no-cache-dir "$( grep templateflow fmriprep-setup.cfg | xargs )" && \
     python -c "from templateflow import api as tfapi; \
-               tfapi.get('MNI152NLin6Asym'); \
-               tfapi.get('MNI152NLin2009cAsym'); \
-               tfapi.get('OASIS30ANTs');" && \
-    find $TEMPLATEFLOW_HOME -type d -exec chmod go=u {} + && \
-    find $TEMPLATEFLOW_HOME -type f -exec chmod go=u {} +
+               tfapi.get('MNI152NLin6Asym', atlas=None, resolution=[1, 2], \
+                         desc=None, extension=['.nii', '.nii.gz']); \
+               tfapi.get('MNI152NLin6Asym', atlas=None, resolution=[1, 2], \
+                         desc='brain', extension=['.nii', '.nii.gz']); \
+               tfapi.get('MNI152NLin2009cAsym', atlas=None, extension=['.nii', '.nii.gz']); \
+               tfapi.get('OASIS30ANTs', extension=['.nii', '.nii.gz']); \
+               tfapi.get('fsaverage', density='164k', desc='std', suffix='sphere'); \
+               tfapi.get('fsaverage', density='164k', desc='vaavg', suffix='midthickness'); \
+               tfapi.get('fsLR', density='32k'); \
+               tfapi.get('MNI152NLin6Asym', resolution=2, atlas='HCP', suffix='dseg')" && \
+    rm fmriprep-setup.cfg && \
+    find $HOME/.cache/templateflow -type d -exec chmod go=u {} + && \
+    find $HOME/.cache/templateflow -type f -exec chmod go=u {} +
+
 
 
     # Installing FMRIPREP
