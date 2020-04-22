@@ -1,5 +1,5 @@
 BootStrap: shub
-From: shub://willgpaik/fmriprep_aci:fmriprep
+From: willgpaik/fmriprep_aci:fmriprep
 
 %setup
 
