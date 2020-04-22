@@ -18,4 +18,4 @@ Qt 5.12.3 is added to **fMRIPrep build**
 Built Qt 5.12.3 without OpenGL support
 
 2020/4/22  
-ffMRIPrep version updated
+fMRIPrep version updated
