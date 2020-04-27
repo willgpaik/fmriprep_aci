@@ -1,5 +1,5 @@
 Bootstrap: shub
-From: willgpaik/ubuntu_aci:1604
+From: willgpaik/qt5_aci:ubuntu
 
 %setup
     
