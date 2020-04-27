@@ -17,7 +17,7 @@ From: willgpaik/ubuntu_aci:1604
     curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y --no-install-recommends \
                     nodejs && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    apt-get clean
     
     # Install latest pandoc
     curl -o pandoc-2.9.2.1-1-amd64.deb -sSL "https://github.com/jgm/pandoc/releases/download/2.9.2.1/pandoc-2.9.2.1-1-amd64.deb" && \
