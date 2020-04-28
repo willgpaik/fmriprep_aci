@@ -173,7 +173,7 @@ From: willgpaik/qt5_aci:ubuntu
     sed -i 's/\(backend *: \).*$/\1Agg/g' $( python -c "import matplotlib; print(matplotlib.matplotlib_fname())" )
 
     # Precaching atlases
-    wget -o fmriprep-setup.cfg https://raw.githubusercontent.com/poldracklab/fmriprep/master/setup.cfg
+    wget -O fmriprep-setup.cfg https://raw.githubusercontent.com/poldracklab/fmriprep/master/setup.cfg
     pip install --no-cache-dir "$( grep templateflow fmriprep-setup.cfg | xargs )" && \
     python -c "from templateflow import api as tfapi; \
                tfapi.get('MNI152NLin6Asym', atlas=None, resolution=[1, 2], \
