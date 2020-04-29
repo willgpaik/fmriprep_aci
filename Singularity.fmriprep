@@ -6,7 +6,44 @@ From: willgpaik/qt5_aci:ubuntu
 %files
 
 %environment 
-
+    export FSL_DIR="/usr/share/fsl/5.0" \
+        OS="Linux" \
+        FS_OVERRIDE=0 \
+        FIX_VERTEX_AREA="" \
+        FSF_OUTPUT_FORMAT="nii.gz" \
+        FREESURFER_HOME="/opt/freesurfer"
+    export SUBJECTS_DIR="$FREESURFER_HOME/subjects" \
+        FUNCTIONALS_DIR="$FREESURFER_HOME/sessions" \
+        MNI_DIR="$FREESURFER_HOME/mni" \
+        LOCAL_DIR="$FREESURFER_HOME/local" \
+        MINC_BIN_DIR="$FREESURFER_HOME/mni/bin" \
+        MINC_LIB_DIR="$FREESURFER_HOME/mni/lib" \
+        MNI_DATAPATH="$FREESURFER_HOME/mni/data"
+    export PERL5LIB="$MINC_LIB_DIR/perl5/5.8.5" \
+        MNI_PERL5LIB="$MINC_LIB_DIR/perl5/5.8.5" \
+        PATH="$FREESURFER_HOME/bin:$FSFAST_HOME/bin:$FREESURFER_HOME/tktools:$MINC_BIN_DIR:$PATH"
+        
+    export FSLDIR="/usr/share/fsl/5.0" \
+        FSLOUTPUTTYPE="NIFTI_GZ" \
+        FSLMULTIFILEQUIT="TRUE" \
+        POSSUMDIR="/usr/share/fsl/5.0" \
+        LD_LIBRARY_PATH="/usr/lib/fsl/5.0:$LD_LIBRARY_PATH" \
+        FSLTCLSH="/usr/bin/tclsh" \
+        FSLWISH="/usr/bin/wish" \
+        AFNI_MODELPATH="/usr/lib/afni/models" \
+        AFNI_IMSAVE_WARNINGS="NO" \
+        AFNI_TTATLAS_DATASET="/usr/share/afni/atlases" \
+        AFNI_PLUGINPATH="/usr/lib/afni/plugins"
+    export PATH="/usr/lib/fsl/5.0:/usr/lib/afni/bin:$PATH"
+    
+    export ANTSPATH=/usr/lib/ants
+    export PATH=$ANTSPATH:$PATH
+    
+    export PATH="/opt/ICA-AROMA:$PATH"
+    
+    export PATH="/usr/local/miniconda/bin:$PATH" \
+    CPATH="/usr/local/miniconda/include/:$CPATH"
+    
 %runscript
     exec /usr/local/miniconda/bin/fmriprep
 
