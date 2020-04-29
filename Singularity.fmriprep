@@ -49,7 +49,7 @@ From: willgpaik/qt5_aci:ubuntu
 
 %post
 
-    # Copying neurobian key
+    # Copying neurodebian key
     wget -P /usr/local/etc/ https://raw.githubusercontent.com/poldracklab/fmriprep/master/docker/files/neurodebian.gpg
     
     # Prepare environment
