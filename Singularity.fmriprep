@@ -49,6 +49,9 @@ From: willgpaik/qt5_aci:ubuntu
 
 %post
 
+    # Copying neurobian key
+    wget -P /usr/local/etc/ https://raw.githubusercontent.com/poldracklab/fmriprep/master/docker/files/neurodebian.gpg
+    
     # Prepare environment
     apt-get update && \
     curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
