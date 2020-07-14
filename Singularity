@@ -8,8 +8,6 @@ From: willgpaik/fmriprep_aci:fmriprep
 %environment 
     PATH="$PATH:/opt/sw/dsistudio/build/:/opt/sw/mrtrix3/bin/"
     export PATH
-    LD_PRELOAD=/opt/eod/lib64/libopentextdlfaker.so.3:/opt/eod/lib64/libopentextglfaker.so.3
-    export LD_PRELOAD
     export EIGEN_CFLAGS=/usr/include/eigen3
 
 %runscript
@@ -44,11 +42,6 @@ From: willgpaik/fmriprep_aci:fmriprep
     ./dsistudio_mrtrix3_install.sh
     
     rm dsistudio_mrtrix3_install.sh
-    
-    # Download requires libraries for EoD:
-    cd /opt/
-    svn export https://github.com/willgpaik/MorphoGraphX_aci.git/trunk/eod_graphics_libraries
-    mv eod_graphics_libraries eod
     
     # Link directories
     mkdir -p /storage/home
