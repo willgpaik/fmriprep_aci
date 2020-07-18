@@ -25,7 +25,6 @@ From: willgpaik/fmriprep_aci:fmriprep
         qt5-default \
         libqt5opengl5-dev \
         libqt5svg5* \
-        libqt5charts5-dev \
         zlib1g \
         zlib1g-dev \
         libeigen3-dev \
