@@ -19,3 +19,9 @@ Built Qt 5.12.3 without OpenGL support
 
 2020/4/22  
 fMRIPrep version updated
+
+2020/7/14  
+Minor updates on Singularity recipe
+
+2020/7/18  
+Minor updates on Singularity recipe
