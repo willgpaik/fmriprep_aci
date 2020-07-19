@@ -6,6 +6,10 @@ From: willgpaik/fmriprep_aci:fmriprep
 %files
 
 %environment 
+    export PATH=/usr/local/Qt-5.14.2/bin:$PATH
+    export LD_LIBRARY_PATH=/usr/local/Qt-5.14.2/lib:$LD_LIBRARY_PATH
+    export CPATH=/usr/local/Qt-5.14.2/include:$CPATH
+    
     PATH="$PATH:/opt/sw/dsistudio/build/:/opt/sw/mrtrix3/bin/"
     export PATH
     export EIGEN_CFLAGS=/usr/include/eigen3
@@ -32,6 +36,10 @@ From: willgpaik/fmriprep_aci:fmriprep
         nano \
         subversion
     apt-get clean
+    
+    export PATH=/usr/local/Qt-5.14.2/bin:$PATH
+    export LD_LIBRARY_PATH=/usr/local/Qt-5.14.2/lib:$LD_LIBRARY_PATH
+    export CPATH=/usr/local/Qt-5.14.2/include:$CPATH
     
     # Install DSI Studio and MRtrix3
     mkdir -p /opt/sw/
