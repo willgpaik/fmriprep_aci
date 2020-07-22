@@ -40,9 +40,11 @@ From: willgpaik/fmriprep_aci:fmriprep
         
     apt-get clean
     
-    export PATH=/usr/local/Qt-5.14.2/bin:$PATH
-    export LD_LIBRARY_PATH=/usr/local/Qt-5.14.2/lib:$LD_LIBRARY_PATH
-    export CPATH=/usr/local/Qt-5.14.2/include:$CPATH
+    export QT_BASE_DIR="/opt/qt512"
+    export QTDIR=$QT_BASE_DIR
+    export PATH=$QT_BASE_DIR/bin:$PATH:
+    export LD_LIBRARY_PATH=$QT_BASE_DIR/lib/x86_64-linux-gnu:$QT_BASE_DIR/lib:$LD_LIBRARY_PATH
+    export PKG_CONFIG_PATH=$QT_BASE_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
     
     # Install DSI Studio and MRtrix3
     mkdir -p /opt/sw/
