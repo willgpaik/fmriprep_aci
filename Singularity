@@ -6,9 +6,11 @@ From: willgpaik/fmriprep_aci:fmriprep
 %files
 
 %environment 
-    export PATH=/usr/local/Qt-5.14.2/bin:$PATH
-    export LD_LIBRARY_PATH=/usr/local/Qt-5.14.2/lib:$LD_LIBRARY_PATH
-    export CPATH=/usr/local/Qt-5.14.2/include:$CPATH
+    export QT_BASE_DIR="/opt/qt512"
+    export QTDIR=$QT_BASE_DIR
+    export PATH=$QT_BASE_DIR/bin:$PATH:
+    export LD_LIBRARY_PATH=$QT_BASE_DIR/lib/x86_64-linux-gnu:$QT_BASE_DIR/lib:$LD_LIBRARY_PATH
+    export PKG_CONFIG_PATH=$QT_BASE_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
     
     PATH="$PATH:/opt/sw/dsistudio/build/:/opt/sw/mrtrix3/bin/"
     export PATH
@@ -34,7 +36,8 @@ From: willgpaik/fmriprep_aci:fmriprep
         libeigen3-dev \
         vim \
         nano \
-        subversion
+        subversion \
+        
     apt-get clean
     
     export PATH=/usr/local/Qt-5.14.2/bin:$PATH
@@ -50,12 +53,12 @@ From: willgpaik/fmriprep_aci:fmriprep
     
     rm dsistudio_mrtrix3_install.sh
     
-    # Link directories
-    mkdir -p /storage/home
-    mkdir -p /storage/work
-    mkdir -p /gpfs/scratch
-    mkdir -p /gpfs/group
-    mkdir -p /var/spool/torque
-
+    # Install VirtualGL
+    cd /opt
+    wget https://sourceforge.net/projects/virtualgl/files/2.6.4/virtualgl_2.6.4_amd64.deb
+    wget https://sourceforge.net/projects/virtualgl/files/2.6.4/virtualgl32_2.6.4_amd64.deb
+    dpkg -r VirtualGL
+    dpkg -i virtualgl*.deb
+    rm virtualgl*.deb
 
 
