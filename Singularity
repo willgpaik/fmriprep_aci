@@ -59,7 +59,6 @@ From: willgpaik/fmriprep_aci:fmriprep
     cd /opt
     wget https://sourceforge.net/projects/virtualgl/files/2.6.4/virtualgl_2.6.4_amd64.deb
     wget https://sourceforge.net/projects/virtualgl/files/2.6.4/virtualgl32_2.6.4_amd64.deb
-    dpkg -r VirtualGL
     dpkg -i virtualgl*.deb
     rm virtualgl*.deb
 
