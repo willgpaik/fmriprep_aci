@@ -36,9 +36,7 @@ From: willgpaik/fmriprep_aci:fmriprep
         libeigen3-dev \
         vim \
         nano \
-        subversion \
-        libxtst6 \
-        libxv1
+        subversion
     apt-get clean
     
     export QT_BASE_DIR="/opt/qt512"
@@ -57,10 +55,11 @@ From: willgpaik/fmriprep_aci:fmriprep
     rm dsistudio_mrtrix3_install.sh
     
     # Install VirtualGL
-    cd /opt
-    wget https://sourceforge.net/projects/virtualgl/files/2.6.4/virtualgl_2.6.4_amd64.deb
-    wget https://sourceforge.net/projects/virtualgl/files/2.6.4/virtualgl32_2.6.4_amd64.deb
-    dpkg -i virtualgl*.deb
-    rm virtualgl*.deb
+#    cd /opt
+#    wget https://sourceforge.net/projects/virtualgl/files/2.6.4/virtualgl_2.6.4_amd64.deb
+#    wget https://sourceforge.net/projects/virtualgl/files/2.6.4/virtualgl32_2.6.4_amd64.deb
+#    dpkg -i virtualgl*.deb
+#    apt-get -f install
+#    rm virtualgl*.deb
 
 
