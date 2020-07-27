@@ -37,7 +37,8 @@ From: willgpaik/fmriprep_aci:fmriprep
         vim \
         nano \
         subversion \
-        
+        libxtst6 \
+        libxv1
     apt-get clean
     
     export QT_BASE_DIR="/opt/qt512"
